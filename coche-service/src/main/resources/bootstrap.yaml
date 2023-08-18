@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: coche-service
-  cloud:
-    config:
-      enabled: true
-      uri: htt://localhost:8081
