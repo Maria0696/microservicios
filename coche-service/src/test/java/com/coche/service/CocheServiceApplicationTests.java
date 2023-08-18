@@ -1,10 +1,10 @@
-package com.carro.service;
+package com.coche.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CarroServiceApplicationTests {
+class CocheServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

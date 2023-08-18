@@ -11,10 +11,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>carro-service</groupId>
-	<artifactId>carro-service</artifactId>
+	<groupId>coche-service</groupId>
+	<artifactId>coche-service</artifactId>
 	<version>1.0</version>
-	<name>carro-service</name>
+	<name>coche-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

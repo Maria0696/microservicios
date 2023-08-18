@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usuario.service.entidades.Usuario;
-import com.usuario.service.modelos.Carro;
+import com.usuario.service.modelos.Coche;
 import com.usuario.service.modelos.Moto;
 import com.usuario.service.servicio.UsuarioService;
 
@@ -48,15 +48,15 @@ public class UsuarioController {
 		return ResponseEntity.ok(nuevoUsuario);
 	}
 	
-	@GetMapping("/carros/{usuarioId}")
-	public ResponseEntity<List<Carro>> listarCarros(@PathVariable("usuarioId") int id){
+	@GetMapping("/coches/{usuarioId}")
+	public ResponseEntity<List<Coche>> listarCoches(@PathVariable("usuarioId") int id){
 		Usuario usuario = usuarioService.getUsuarioById(id);
 		if(usuario == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		List<Carro> carros = usuarioService.getCarros(id);
-		return ResponseEntity.ok(carros);
+		List<Coche> coches = usuarioService.getCoches(id);
+		return ResponseEntity.ok(coches);
 	}
 	
 	@GetMapping("/motos/{usuarioId}")
@@ -70,10 +70,10 @@ public class UsuarioController {
 		return ResponseEntity.ok(motos);
 	}
 	
-	@PostMapping("/carro/{usuarioId}")
-	public ResponseEntity<Carro> guardarCarro(@PathVariable("usuarioId") int usuarioId,@RequestBody Carro carro){
-		Carro nuevoCarro = usuarioService.saveCarro(usuarioId, carro);
-		return ResponseEntity.ok(nuevoCarro);
+	@PostMapping("/coche/{usuarioId}")
+	public ResponseEntity<Coche> guardarCoche(@PathVariable("usuarioId") int usuarioId,@RequestBody Coche coche){
+		Coche nuevoCoche = usuarioService.saveCoche(usuarioId, coche);
+		return ResponseEntity.ok(nuevoCoche);
 	} 
 	
 	@PostMapping("/moto/{usuarioId}")

@@ -1,6 +1,6 @@
 package com.usuario.service.modelos;
 
-public class Carro {
+public class Coche {
 
 	private String marca;
 	private String modelo;
@@ -30,7 +30,7 @@ public class Carro {
 		this.usuarioId = usuarioId;
 	}
 
-	public Carro() {
+	public Coche() {
 		super();
 	}
 

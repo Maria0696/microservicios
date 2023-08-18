@@ -1,4 +1,4 @@
-package com.carro.service.entidades;
+package com.coche.service.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Carro {
+public class Coche {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,7 +48,7 @@ public class Carro {
 		this.usuarioId = usuarioId;
 	}
 
-	public Carro() {
+	public Coche() {
 		super();
 	}
 

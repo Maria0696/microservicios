@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.usuario.service.entidades.Usuario;
-import com.usuario.service.feignclients.CarroFeignClient;
+import com.usuario.service.feignclients.CocheFeignClient;
 import com.usuario.service.feignclients.MotoFeignClient;
-import com.usuario.service.modelos.Carro;
+import com.usuario.service.modelos.Coche;
 import com.usuario.service.modelos.Moto;
 import com.usuario.service.repositorio.UsuarioRepository;
 
@@ -25,7 +25,7 @@ public class UsuarioService {
 	private UsuarioRepository usuarioRepository;
 
 	@Autowired
-	private CarroFeignClient carroFeignClient;
+	private CocheFeignClient cocheFeignClient;
 
 	@Autowired
 	private MotoFeignClient motoFeignClient;
@@ -43,9 +43,9 @@ public class UsuarioService {
 		return nuevoUsuario;
 	}
 
-	public List<Carro> getCarros(int usuarioId) {
-		List<Carro> carros = restTemplate.getForObject("http://localhost:8002/carro/usuario/" + usuarioId, List.class);
-		return carros;
+	public List<Coche> getCoches(int usuarioId) {
+		List<Coche> coches = restTemplate.getForObject("http://localhost:8002/coche/usuario/" + usuarioId, List.class);
+		return coches;
 	}
 
 	public List<Moto> getMotos(int usuarioId) {
@@ -53,10 +53,10 @@ public class UsuarioService {
 		return motos;
 	}
 
-	public Carro saveCarro(int usuarioId, Carro carro) {
-		carro.setUsuarioId(usuarioId);
-		Carro nuevoCarro = carroFeignClient.save(carro);
-		return nuevoCarro;
+	public Coche saveCoche(int usuarioId, Coche coche) {
+		coche.setUsuarioId(usuarioId);
+		Coche nuevoCoche = cocheFeignClient.save(coche);
+		return nuevoCoche;
 	}
 	
 	public Moto saveMoto(int usuarioId,Moto moto) {
@@ -75,12 +75,12 @@ public class UsuarioService {
 		}
 		
 		resultado.put("Usuario",usuario);
-		List<Carro> carros = carroFeignClient.getCarros(usuarioId);
-		if(carros.isEmpty()) {
-			resultado.put("Carros", "El usuario no tiene carros");
+		List<Coche> coches = cocheFeignClient.getCoches(usuarioId);
+		if(coches.isEmpty()) {
+			resultado.put("Coches", "El usuario no tiene coches");
 		}
 		else {
-			resultado.put("Carros", carros);
+			resultado.put("Coches", coches);
 		}
 		
 		List<Moto> motos = motoFeignClient.getMotos(usuarioId);
