@@ -31,7 +31,7 @@ public class CocheController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Coche> obtenerCarro(@PathVariable("id") int id){
-		Coche coche = cocheService.getCocheById(id);
+		Coche coche = cocheService.getCarroById(id);
 		if(coche == null) {
 			return ResponseEntity.notFound().build();
 		}
