@@ -18,7 +18,7 @@ public class CocheService {
 		return cocheRepository.findAll();
 	}
 	
-	public Coche getCarroById(int id) {
+	public Coche getCocheById(int id) {
 		return cocheRepository.findById(id).orElse(null);
 	}
 	

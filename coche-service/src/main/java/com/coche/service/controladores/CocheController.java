@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/carro")
+@RequestMapping("/coche")
 public class CocheController {
 
 	@Autowired
 	private CocheService cocheService;
 	
 	@GetMapping
-	public ResponseEntity<List<Coche>> listarCarros(){
+	public ResponseEntity<List<Coche>> listarCoches(){
 		List<Coche> coches = cocheService.getAll();
 		if(coches.isEmpty()) {
 			return ResponseEntity.noContent().build();
@@ -30,8 +30,8 @@ public class CocheController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Coche> obtenerCarro(@PathVariable("id") int id){
-		Coche coche = cocheService.getCarroById(id);
+	public ResponseEntity<Coche> obtenerCoche(@PathVariable("id") int id){
+		Coche coche = cocheService.getCocheById(id);
 		if(coche == null) {
 			return ResponseEntity.notFound().build();
 		}
@@ -39,13 +39,13 @@ public class CocheController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Coche> guardarCarro(@RequestBody Coche coche){
+	public ResponseEntity<Coche> guardarCoche(@RequestBody Coche coche){
 		Coche nuevoCoche = cocheService.save(coche);
 		return ResponseEntity.ok(nuevoCoche);
 	}
 	
 	@GetMapping("/usuario/{usuarioId}")
-	public ResponseEntity<List<Coche>> listarCarrosPorUsuarioId(@PathVariable("usuarioId") int id){
+	public ResponseEntity<List<Coche>> listarCochesPorUsuarioId(@PathVariable("usuarioId") int id){
 		List<Coche> coches = cocheService.byUsuarioId(id);
 		if(coches.isEmpty()) {
 			return ResponseEntity.noContent().build();
